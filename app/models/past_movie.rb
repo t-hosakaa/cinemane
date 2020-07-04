@@ -1,0 +1,2 @@
+class PastMovie < ApplicationRecord
+end
