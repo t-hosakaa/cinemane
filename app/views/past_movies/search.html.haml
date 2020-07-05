@@ -1,0 +1,10 @@
+.Index
+  = form_with(url: search_past_movies_path, local: true, method: 'get', class: "SearchBox") do |f|
+    = f.search_field :keyword, placeholder: "タイトル検索", class: "SearchBox__input"
+    = f.submit "検索", class: "SearchBox__btn"
+  .Content
+    - @past_movies.each do |movie|
+      .Contents
+        .Contents__item
+          = link_to past_movie_path(movie.id), method: "get" do
+            = image_tag movie.image.to_s, class: "Contents__item__image"

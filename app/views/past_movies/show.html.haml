@@ -1,0 +1,28 @@
+.Show
+  .Show__content
+    .ShowBox
+      .ShowBox__img
+        = image_tag @past_movie.image.to_s
+      .ShowBox__list
+        %ul
+          %li.ShowBox__list--border
+            %span.ShowBox__list--color Title : 
+            = @past_movie.title
+          %li.ShowBox__list--border
+            %span.ShowBox__list--color Genre : 
+            = @past_movie.genre
+          %li.ShowBox__list--border
+            %span.ShowBox__list--color Review : 
+            = @past_movie.review
+          %li.ShowBox__list--border
+            %span.ShowBox__list--color Updated : 
+            = @past_movie.updated_at.strftime("%Y-%m-%d")
+          %li.ShowBox__list--border
+            %span.ShowBox__list--color URL : 
+            = link_to "#{@past_movie.url}" do
+              %p.ShowBox__list--link 参考リンク
+    .ShowBtn
+      = link_to edit_past_movie_path(params[:id]), class: "ShowBtn__edit" do
+        Edit
+      = link_to past_movie_path(params[:id]), class: "ShowBtn__destroy", method: "delete" do
+        Destroy

@@ -2,3 +2,36 @@
 @import "modules/past_movies";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+* {
+  text-decoration: none;
+}
+
+.Header {
+  background-color: black;
+  height: 70px;
+  width: 100vw;
+  position: fixed;
+  top:0px;
+  &__content {
+    margin: 0 auto;
+    width: 80%;
+    .ApplicationName {
+      display: inline-block;
+      text-align: center;
+      color: yellow;
+      line-height: 70px;
+      font-size: 35px;
+      font-weight: bold;
+      width: 30%;
+      height: 70px;
+    }
+  }
+}
+
+body {
+  background-color: yellow;
+  height: 100vh;
+}
+
+

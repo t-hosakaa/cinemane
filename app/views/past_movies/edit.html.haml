@@ -1,0 +1,7 @@
+.Content
+  =form_with model: @past_movie, local: true, class: "Form" do |f|
+    = f.text_field :title, placeholder: "タイトル", class: "Form__input"
+    = f.text_field :genre, placeholder: "ジャンル", class: "Form__input"
+    = f.text_area :review, placeholder: "レビュー", class: "Form__input review"
+    = f.file_field :image, class: "Form__input image_input"
+    = f.submit "更新", class: "Form__submit"
