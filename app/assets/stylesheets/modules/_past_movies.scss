@@ -6,3 +6,79 @@
   box-sizing: border-box;
 }
 
+.Index {
+  margin: 0 auto;
+  width: 80%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .Content {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    overflow: scroll;
+    .Contents {
+      width: 100%;
+      text-align: center;
+      &__item {
+        &__image {
+          display: inline-block;
+          border: 0.5px solid rgb(194, 194, 194);
+          margin: 0 auto;
+        }
+        &__title {
+          padding-bottom: 7px;
+        }
+      }
+    }
+  }
+}
+
+.Footer {
+  background-color: yellow;
+  width: 100vw;
+  height: 60px;
+  position: fixed;
+  bottom: 0px;
+  text-align: right;
+  &__content {
+    margin: 0 auto;
+    width: 80%;
+    .fa-plus-square {
+      display: inline-block;
+      color: black;
+      line-height: 60px;
+      font-size: 50px;
+    }
+  }
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  margin: 0 auto;
+  align-items: center;
+  width: 60vw;
+  &__input {
+    width: 500px;
+    margin: 5px;
+    padding: 5px;
+  }
+  .review {
+    height: 200px;
+  }
+  .image_input {
+    border: 0.5px solid gray;
+    border-radius: 3px;
+  }
+  &__submit {
+    width: 130px;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background-color: lightseagreen;
+  }
+}

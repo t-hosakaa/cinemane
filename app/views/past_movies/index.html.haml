@@ -1,1 +1,12 @@
-hello haml!
+.Index
+  .Content
+    - @past_movies.each do |movie|
+      .Contents
+        .Contents__item
+          = image_tag movie.image.to_s, class: "Contents__item__image"
+          %p.Contents__item__title 
+            = movie.title 
+.Footer
+  .Footer__content
+    = link_to new_past_movie_path do
+      %icon.far.fa-plus-square
