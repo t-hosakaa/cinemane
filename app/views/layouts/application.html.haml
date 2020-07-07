@@ -6,7 +6,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'
   %body
     .Header
       .Header__content
@@ -14,3 +14,9 @@
           %h1.ApplicationName
             Cinemana
     = yield
+    .Footer
+      .Footer__content
+        = link_to search_past_movies_path do
+          %icon.fas.fa-search.yellow
+        = link_to new_past_movie_path do
+          %icon.far.fa-plus-square

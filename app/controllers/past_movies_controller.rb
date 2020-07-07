@@ -43,6 +43,10 @@ class PastMoviesController < ApplicationController
 
   def search
     @past_movies = PastMovie.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
