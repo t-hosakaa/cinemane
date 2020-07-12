@@ -13,10 +13,27 @@
         =link_to past_movies_path do
           %h1.ApplicationName
             Cinemana
+        %ul.Header__list
+          - if user_signed_in?
+            %li
+              =link_to users_show_path do
+                %icon.fa.fa-user-alt
+            %li
+              =link_to destroy_user_session_path, method: :delete do
+                %icon.fas.fa-sign-out-alt
+            
+          - else
+            %li
+              =link_to new_user_session_path do
+                %icon.fas.fa-sign-in-alt
+            %li
+              =link_to new_user_registration_path do
+                %icon.fas.fa-plus
     = yield
     .Footer
-      .Footer__content
-        = link_to search_past_movies_path do
-          %icon.fas.fa-search.yellow
-        = link_to new_past_movie_path do
-          %icon.far.fa-plus-square
+      - if user_signed_in?
+        .Footer__content
+          = link_to search_past_movies_path do
+            %icon.fas.fa-search.yellow
+          = link_to new_past_movie_path do
+            %icon.far.fa-plus-square

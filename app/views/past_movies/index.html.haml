@@ -1,8 +1,10 @@
+%h2 My Movie History
 .Index
   .Content
-    - @past_movies.each do |movie|
-      .Contents
-        .Contents__item
-          = link_to past_movie_path(movie.id), method: "get" do
-            = image_tag movie.image.to_s, class: "Contents__item__image"
+    - if user_signed_in?
+      - @past_movies.each do |movie|
+        .Contents
+          .Contents__item
+            = link_to past_movie_path(movie.id), method: "get" do
+              = image_tag movie.image.to_s, class: "Contents__item__image"
 

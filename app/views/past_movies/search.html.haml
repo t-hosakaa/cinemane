@@ -1,3 +1,5 @@
+%h2 Search for Movie!
+%input{name: "current_user_id", type: "hidden", value: current_user.id, class: 'current_user_id' }
 .Index
   = form_with(url: search_past_movies_path, local: true, method: 'get', class: "SearchBox") do |f|
     .InputBox

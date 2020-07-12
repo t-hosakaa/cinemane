@@ -7,15 +7,19 @@
   text-decoration: none;
 }
 
+// 全画面ヘッダー
 .Header {
   background-color: black;
   height: 70px;
   width: 100vw;
   position: fixed;
+  z-index: 10;
   top:0px;
   &__content {
     margin: 0 auto;
     width: 80%;
+    display: flex;
+    justify-content: space-between;
     .ApplicationName {
       display: inline-block;
       text-align: center;
@@ -26,9 +30,46 @@
       width: 30%;
       height: 70px;
     }
+    .Header__list {
+      display: flex;
+      .fa-sign-in-alt {
+        display: inline-block;
+        text-align: center;
+        color: yellow;
+        line-height: 70px;
+        font-size: 45px;
+        margin-right: 20px;
+      }
+      .fa-plus {
+        display: inline-block;
+        text-align: center;
+        color: yellow;
+        line-height: 70px;
+        font-size: 45px;
+        margin-right: 20px;
+      }
+      .fa-user-alt {
+        display: inline-block;
+        text-align: center;
+        color: yellow;
+        line-height: 65px;
+        font-size: 40px;
+        margin-right: 20px;
+      }
+      .fa-sign-out-alt {
+        display: inline-block;
+        text-align: center;
+        color: yellow;
+        line-height: 70px;
+        font-size: 45px;
+        margin-right: 10px;
+      }
+    }
+    
   }
 }
 
+// 全画面フッター
 .Footer {
   background-color: black;
   width: 100vw;
@@ -60,4 +101,159 @@ html,body {
   height: 100vh;
 }
 
+body {
+  overflow: scroll;
+}
 
+// --------User管理画面--------
+h2 {
+  padding-top: 120px;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: 3px solid black;
+}
+// --------form--------
+.new_user,.edit_user {
+  width: 60vw;
+  margin: 50px auto;
+  padding: 0 auto;
+  text-align: center;
+  .field {
+    padding: 0;
+  }
+  .SignUpInput {
+    width: 300px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 0.5px solid gray;
+    box-shadow: 1px 1px 10px slategray;
+    margin-bottom: 20px;
+  }
+  .SignUpBtn {
+    width: 130px;
+    padding: 10px;
+    margin-top: 40px;
+    color: yellow;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px slategray;
+    background-color: black;
+  }
+}
+
+// --------login--------
+
+.LogInInput {
+  width: 300px;
+  padding: 5px;
+  margin-top: 20px;
+  border-radius: 3px;
+  border: 0.5px solid gray;
+  box-shadow: 1px 1px 10px slategray;
+}
+
+// --------show--------
+
+.UserShowContent {
+  margin: 0 auto;
+  width: 20%;
+  text-align: left;
+  padding-top: 40px;
+  .UserName, .UserEmail {
+    font-size: 20px;
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+  }
+  .label {
+    font-size: 15px;
+  }
+}
+
+.EditBtn {
+  width: 30%;
+  margin: 40px auto;
+  text-align: center;
+  .UserEditBtn {
+    display: inline-block;
+    background-color: black;
+    padding: 10px 30px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px slategray;
+    color: yellow;
+  }
+}
+
+// --------edit--------
+
+.CancelAccount {
+  width: 50%;
+  margin: 30px auto;
+  text-align: right;
+}
+
+.CancelAccountBtn {
+  display: inline-block;
+  background-color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px slategray;
+  color: yellow;
+  cursor: pointer;
+}
+
+// --------form--------
+
+
+
+
+.Messages {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  &__btn {
+    display: inline-block;
+    width: 130px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: yellow;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px slategray;
+    background-color: black;
+  }
+  &__forget_password {
+    color: black;
+  }
+}
+
+.ForgetBtn {
+  display: inline-block;
+  width: 300px;
+  font-size: 15px;
+  padding: 10px 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: yellow;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px slategray;
+  background-color: black;
+}
+
+// --------ErrorMsg--------
+
+.ErrorMessages{
+  margin-bottom: 20px;
+  .Message {
+    color: red;
+  }
+}
