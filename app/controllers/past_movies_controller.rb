@@ -1,8 +1,12 @@
 class PastMoviesController < ApplicationController
   before_action :set_past_movie, only: [:edit, :show]
+  before_action :move_to_top, only:[:index]
+
+  def top
+  end
   
   def index
-    @past_movies = PastMovie.all
+    @past_movies = PastMovie.where(user_id: current_user.id)
   end
 
   def new
@@ -51,11 +55,15 @@ class PastMoviesController < ApplicationController
 
   private
 
+  def move_to_top
+    redirect_to top_past_movies_path, method: :get unless user_signed_in?
+  end
+
   def set_past_movie
     @past_movie = PastMovie.find(params[:id])
   end
 
   def past_movie_params
-    params.require(:past_movie).permit(:title, :genre, :review, :image, :url)
+    params.require(:past_movie).permit(:title, :genre, :review, :image, :url).merge(user_id: current_user.id)
   end
 end

@@ -1,0 +1,12 @@
+%h2 User Information
+.UserShowContent
+  %p.UserName
+    %span.label Name:
+    = @user.name
+  %p.UserEmail
+    %span.label Email:
+    = @user.email
+.EditBtn
+  = link_to edit_user_registration_path, class: "UserEditBtn" do
+    %p
+      編集する
