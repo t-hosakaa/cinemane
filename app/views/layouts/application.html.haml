@@ -20,8 +20,7 @@
                 %icon.fa.fa-user-alt
             %li
               =link_to destroy_user_session_path, method: :delete do
-                %icon.fas.fa-sign-out-alt
-            
+                %icon.fas.fa-sign-out-alt            
           - else
             %li
               =link_to new_user_session_path do
@@ -29,6 +28,9 @@
             %li
               =link_to new_user_registration_path do
                 %icon.fas.fa-plus
+      .notifications
+        - flash.each do |key, value|
+          %p{class: key}= value
     = yield
     .Footer
       - if user_signed_in?

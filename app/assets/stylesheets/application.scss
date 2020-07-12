@@ -69,6 +69,19 @@
   }
 }
 
+// flashメッセージ
+
+.notifications {
+  text-align: center;
+  color: white;
+  .notice {
+    background-color: lightseagreen;
+  }
+  .alert {
+    background-color: red;
+  }
+}
+
 // 全画面フッター
 .Footer {
   background-color: black;

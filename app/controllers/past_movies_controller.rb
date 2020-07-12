@@ -16,8 +16,10 @@ class PastMoviesController < ApplicationController
   def create
     past_movie = PastMovie.new(past_movie_params)
     if past_movie.save
+      flash[:notice] = "映画を登録しました"
       redirect_to past_movies_path
     else
+      flash.now[:alert] = "登録に失敗しました"
       render new_past_movie_path
     end
 
@@ -30,11 +32,13 @@ class PastMoviesController < ApplicationController
   end
 
   def update
-    past_movie = PastMovie.find(params[:id])
-    if past_movie.update(past_movie_params)
-      redirect_to past_movies_path
+    @past_movie = PastMovie.find(params[:id])
+    if @past_movie.update(past_movie_params)
+      flash[:notice] = "映画情報を更新しました"
+      redirect_to root_path
     else
-      render edit_past_movie_path(past_movie.id)
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
     end
 
   end
@@ -42,6 +46,7 @@ class PastMoviesController < ApplicationController
   def destroy
     past_movie = PastMovie.find(params[:id])
     past_movie.destroy
+    flash[:notice] = "映画を削除しました"
     redirect_to past_movies_path
   end
 
