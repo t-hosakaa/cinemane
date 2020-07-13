@@ -36,7 +36,7 @@ $(function(){
         })
       }
       else {
-        appendErrMsgToHTML('一致する映画はありません');
+        appendErrMsgToHTML('No match was found..');
       }
     })
     .fail(function(){

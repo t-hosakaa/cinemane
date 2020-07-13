@@ -1,4 +1,5 @@
 class PastMoviesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_past_movie, only: [:edit, :show]
   before_action :move_to_top, only:[:index]
 
