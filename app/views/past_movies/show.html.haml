@@ -19,11 +19,22 @@
             %span.ShowBox__list--color Updated : 
             = @past_movie.updated_at.strftime("%Y-%m-%d")
           %li.ShowBox__list--border
-            %span.ShowBox__list--color URL : 
-            = link_to "#{@past_movie.url}" do
-              %p.ShowBox__list--link 参考リンク
+            %span.ShowBox__list--color Group : 
+            - if @past_movie.groups.length != 0
+              - @past_movie.groups.each do |group|
+                = link_to group_path(group.id), class:"ShowBox__list--link" do
+                  = group.name
+            - else
+              追加されているグループはありません
     .ShowBtn
       = link_to edit_past_movie_path(params[:id]), class: "ShowBtn__edit" do
         Edit
-      = link_to past_movie_path(params[:id]), class: "ShowBtn__destroy", method: "delete" do
-        Destroy
+      #modal-open-btn.ShowBtn__destroy Destroy
+      = link_to "", past_movie_path(params[:id]), id: 'item-delete-btn', method: "delete" 
+      #overlay
+        #modalWindow
+          .modal-message-box
+            %div 確認
+            %div 本当に削除しますか？
+          %button#modal-close-btn キャンセル
+          %button#delete-comformation-btn 削除する
