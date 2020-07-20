@@ -1,6 +1,5 @@
 class PastMoviesController < ApplicationController
   before_action :set_past_movie, only: [:edit, :show]
-  before_action :move_to_top, only:[:index]
 
   def top
   end
@@ -16,7 +15,7 @@ class PastMoviesController < ApplicationController
   def create
     past_movie = PastMovie.new(past_movie_params)
     if past_movie.save
-      flash[:notice] = "映画を登録しました"
+      flash[:notice] = "#{past_movie.title}を登録しました"
       redirect_to past_movies_path
     else
       flash.now[:alert] = "登録に失敗しました"
@@ -46,7 +45,7 @@ class PastMoviesController < ApplicationController
   def destroy
     past_movie = PastMovie.find(params[:id])
     past_movie.destroy
-    flash[:notice] = "映画を削除しました"
+    flash[:notice] = "#{past_movie.title}を削除しました"
     redirect_to past_movies_path
   end
 
@@ -59,10 +58,6 @@ class PastMoviesController < ApplicationController
   end
 
   private
-
-  def move_to_top
-    redirect_to top_past_movies_path, method: :get unless user_signed_in?
-  end
 
   def set_past_movie
     @past_movie = PastMovie.find(params[:id])

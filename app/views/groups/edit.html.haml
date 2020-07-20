@@ -1,0 +1,11 @@
+%h2 Add to Movie
+.NewGroupContent
+  = form_with(model: @group, local: true, class: "NewGroupFrom") do |f|
+    = f.text_field :name, placeholder: "GroupName", class: "NewGroupFrom__input"
+    %p ↓追加したいタイトルにチェック
+    = f.collection_check_boxes :past_movie_ids, PastMovie.where(user_id: current_user.id), :id, :title do |b|
+      %ul.CheckList
+        %li
+          = b.check_box
+          = b.label
+    = f.submit "Update!!", class: "NewGroupFrom__btn"

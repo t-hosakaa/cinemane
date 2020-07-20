@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group, only: [:show]
+  before_action :set_group, only: [:show, :edit, :update]
 
   def index
     @groups = current_user.groups
@@ -22,6 +22,19 @@ class GroupsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+  
+  def update
+    if @group.update(group_params)
+      flash[:notice] = "「#{@group.name}」を編集しました"
+      redirect_to group_path(@group.id)
+    else
+      flash[:alert] = "映画の追加に失敗しました"
+      render :edit
+    end
   end
 
   def destroy

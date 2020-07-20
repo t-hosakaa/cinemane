@@ -6,3 +6,15 @@
         .Contents__item
           = link_to past_movie_path(movie.id), method: "get" do
             = image_tag movie.image.to_s, class: "Contents__item__image"
+  .AddToContentBtn
+    = link_to "このグループを編集する", edit_group_path(@group.id), class: "AddBtn", method: "get" 
+  .DestroyGroup
+    #modal-open-btn.DestroyGroup__btn このグループを削除する
+    = link_to "", group_path(@group.id), id: 'item-delete-btn', method: :delete
+    #overlay
+      #modalWindow
+        .modal-message-box
+          %div 確認
+          %div 本当に削除しますか？
+        %button#modal-close-btn キャンセル
+        %button#delete-comformation-btn 削除する
