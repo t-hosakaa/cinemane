@@ -6,14 +6,6 @@
         = link_to group_path(group.id), class: "group_name black" do
           = group.name
         -# = link_to group_path(group.id), class: "destroy_btn black", method: :delete do
-        %icon.fas.fa-times.destroy_btn.black#modal-open-btn
-        = link_to "", group_path(group.id), id: 'item-delete-btn', method: :delete
-        #overlay
-          #modalWindow
-            .modal-message-box
-              %div 確認
-              %div 本当に削除しますか？
-            %button#modal-close-btn キャンセル
-            %button#delete-comformation-btn 削除する
+        
   = link_to new_group_path do
     %icon.fas.fa-plus

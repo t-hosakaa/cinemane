@@ -74,12 +74,13 @@
 
 .notifications {
   text-align: center;
-  color: white;
   .notice {
-    background-color: lightseagreen;
+    background-color: blue;
+    color: white;
   }
   .alert {
     background-color: red;
+    color: white;
   }
 }
 
