@@ -1,8 +1,6 @@
 $(function(){
   
   function appendPastMovie(past_movie){
-    let current_user_id = $('.current_user_id').val();
-    if (past_movie.user_id == current_user_id) {
       let html = `<div class="Contents">
                   <div class="Contents__item">
                     <a href="/past_movies/${past_movie.id}">
@@ -11,7 +9,6 @@ $(function(){
                   </div>
                 </div>`;
       $('.Content').append(html);
-    }
   }
 
   function appendErrMsgToHTML(msg){

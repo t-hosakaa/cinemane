@@ -50,7 +50,8 @@ class PastMoviesController < ApplicationController
   end
 
   def search
-    @past_movies = PastMovie.search(params[:keyword])
+    current_movies = PastMovie.where(user_id: current_user.id)
+    @past_movies = current_movies.search(params[:keyword])
     respond_to do |format|
       format.html
       format.json
