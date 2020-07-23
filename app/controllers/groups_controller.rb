@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
   
   def update
     if @group.update(group_params)
-      flash[:notice] = "「#{@group.name}」を編集しました"
+      flash[:notice] = "『#{@group.name}』を編集しました"
       redirect_to group_path(@group.id)
     else
       flash[:alert] = "映画の追加に失敗しました"
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
   def destroy
     group = Group.find(params[:id])
     group.destroy
-    flash[:notice] = "#{group.name}を削除しました"
+    flash[:notice] = "『#{group.name}』を削除しました"
     redirect_to groups_path
   end
 

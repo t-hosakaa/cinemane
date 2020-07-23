@@ -33,7 +33,7 @@ class PastMoviesController < ApplicationController
   def update
     @past_movie = PastMovie.find(params[:id])
     if @past_movie.update(past_movie_params)
-      flash[:notice] = "映画情報を更新しました"
+      flash[:notice] = "『#{@past_movie.title}』を更新しました"
       redirect_to root_path
     else
       flash.now[:alert] = "更新に失敗しました"
@@ -45,7 +45,7 @@ class PastMoviesController < ApplicationController
   def destroy
     past_movie = PastMovie.find(params[:id])
     past_movie.destroy
-    flash[:notice] = "#{past_movie.title}を削除しました"
+    flash[:notice] = "『#{past_movie.title}』を削除しました"
     redirect_to past_movies_path
   end
 
