@@ -70,3 +70,4 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'rails-i18n'
 gem 'jquery-ui-rails'
+gem "aws-sdk-s3", require: false
