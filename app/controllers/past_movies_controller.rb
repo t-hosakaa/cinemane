@@ -13,13 +13,13 @@ class PastMoviesController < ApplicationController
   end
 
   def create
-    past_movie = PastMovie.new(past_movie_params)
-    if past_movie.save
-      flash[:notice] = "#{past_movie.title}を登録しました"
+    @past_movie = PastMovie.new(past_movie_params)
+    if @past_movie.save
+      flash[:notice] = "#{@past_movie.title}を登録しました"
       redirect_to past_movies_path
     else
       flash.now[:alert] = "登録に失敗しました"
-      render new_past_movie_path
+      render :new
     end
 
   end
